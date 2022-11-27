@@ -9,5 +9,14 @@ void drawBalls(BALL ball, int maxBalls)
 void drawTable()
 {
 	DrawRectangle(150, 50, 600, 800, DARKGREEN);
-	DrawRectangleLinesEx(Rectangle{ 150, 50, 600, 800 }, 15, DARKBROWN);
+	DrawRectangleLinesEx(Rectangle{ 135, 35, 630, 830 }, 15, DARKBROWN);
+
+	DrawCircle(150, 50, 15, BLACK);
+	DrawCircle(750, 50, 15, BLACK);
+
+	DrawCircle(150, 450, 15, BLACK);
+	DrawCircle(750, 450, 15, BLACK);
+
+	DrawCircle(150, 850, 15, BLACK);
+	DrawCircle(750, 850, 15, BLACK);
 }

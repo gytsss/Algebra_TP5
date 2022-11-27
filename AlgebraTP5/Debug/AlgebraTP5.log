@@ -1,2 +1,4 @@
-﻿  CheckColisions.cpp
-  AlgebraTP5.vcxproj -> C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Pool\Debug\AlgebraTP5.exe
+﻿  Game.cpp
+C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\AlgebraTP5\Game.cpp(9,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\AlgebraTP5\Game.cpp(11,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  AlgebraTP5.vcxproj -> C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\Debug\AlgebraTP5.exe

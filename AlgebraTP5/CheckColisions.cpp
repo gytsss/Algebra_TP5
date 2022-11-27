@@ -55,3 +55,28 @@ void CheckBallBallColition(BALL& ball1, BALL& ball2)
 		}
 	}
 }
+
+void CheckBallCorner(BALL& ball)
+{
+	if (CheckCollisionCircles(ball.position, ball.radius, { 150, 50 }, 15) ||
+		CheckCollisionCircles(ball.position, ball.radius, { 750, 50 }, 15) ||
+		CheckCollisionCircles(ball.position, ball.radius, { 150, 450 }, 15) ||
+		CheckCollisionCircles(ball.position, ball.radius, { 750, 450 }, 15) ||
+		CheckCollisionCircles(ball.position, ball.radius, { 150, 850 }, 15) ||
+		CheckCollisionCircles(ball.position, ball.radius, { 750, 850 }, 15))
+	{
+		if (ball.id == 0)
+		{
+			ball.position = { static_cast<float>(GetScreenWidth() / 2), 650.0f };
+			ball.speed = { 0,0 };
+		}
+		else
+		{
+			ball.position = { static_cast<float>(ball.id * 50) , 20};
+		}
+
+		ball.inMovement = false;
+	}
+
+
+}

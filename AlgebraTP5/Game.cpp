@@ -6,9 +6,9 @@ void game()
 	BALL arrayBalls[maxBalls];
 
 	//                           X       Y    radius  mass
-	createBall(arrayBalls[0], GetScreenWidth() / 2, 650.0f, 10.0f, 5.0f, 0,WHITE);
+	createBall(arrayBalls[0], GetScreenWidth() / 2, 650.0f, 10.0f, 5.0f, 1, WHITE);
 	//linea de 5
-	createBall(arrayBalls[1], GetScreenWidth() / 2 + 30, 200.0f, 10.0f, 5.0f, 1,RED);
+	createBall(arrayBalls[1], GetScreenWidth() / 2 + 30, 200.0f, 10.0f, 5.0f, 1, RED);
 	//createBall(arrayBalls[2], GetScreenWidth() / 2 + 60, 200.0f, 10.0f, 5.0f, 2,RED);
 	//createBall(arrayBalls[3], GetScreenWidth() / 2 - 30, 200.0f, 10.0f, 5.0f, 3,GREEN);
 	//createBall(arrayBalls[4], GetScreenWidth() / 2 - 60, 200.0f, 10.0f, 5.0f, 4,GREEN);
@@ -53,26 +53,18 @@ void game()
 		for (int i = 0; i < maxBalls; i++)
 		{
 			CheckBallWallColition(arrayBalls[i]);
+			CheckBallCorner(arrayBalls[i]);
 		}
 
 		for (int i = 0; i < maxBalls; i++)
 		{
-			CheckBallBallColition(arrayBalls[0], arrayBalls[i]);
-			CheckBallBallColition(arrayBalls[1], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[2], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[3], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[4], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[5], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[6], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[7], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[8], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[9], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[10], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[11], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[12], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[13], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[14], arrayBalls[i]);
-			//CheckBallBallColition(arrayBalls[15], arrayBalls[i]);
+			if (arrayBalls[i].inMovement)
+			{
+				for (int y = 0; y < maxBalls; y++)
+				{
+					CheckBallBallColition(arrayBalls[i], arrayBalls[y]);
+				}
+			}
 		}
 
 		//draw
