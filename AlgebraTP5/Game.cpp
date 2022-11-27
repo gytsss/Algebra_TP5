@@ -6,7 +6,7 @@ void game()
 	BALL arrayBalls[maxBalls];
 
 	//                           X       Y    radius  mass
-	createBall(arrayBalls[0], GetScreenWidth() / 2, 650.0f, 10.0f, 5.0f, 1, WHITE);
+	createBall(arrayBalls[0], GetScreenWidth() / 2, 650.0f, 10.0f, 5.0f, 0, WHITE);
 	//linea de 5
 	createBall(arrayBalls[1], GetScreenWidth() / 2 + 30, 200.0f, 10.0f, 5.0f, 1, RED);
 	//createBall(arrayBalls[2], GetScreenWidth() / 2 + 60, 200.0f, 10.0f, 5.0f, 2,RED);
@@ -43,8 +43,9 @@ void game()
 		{
 			updateBall(arrayBalls[i]);
 		}
-		cout << arrayBalls[0].position.x << " " << arrayBalls[0].position.y << endl;
-		cout << arrayBalls[1].position.x << " " << arrayBalls[1].position.y << endl;
+
+		cout << arrayBalls[0].speed.y << endl;
+		//cout << arrayBalls[1].position.x << " " << arrayBalls[1].position.y << endl;
 
 		//player
 		PlayerMove(P1, arrayBalls[0]);

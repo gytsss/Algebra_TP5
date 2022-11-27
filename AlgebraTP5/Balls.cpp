@@ -1,6 +1,6 @@
 ﻿#include "Balls.h"
 
-void createBall(BALL& newBall ,float x, float y, float radius, float mass, int id, Color color)
+void createBall(BALL& newBall, float x, float y, float radius, float mass, int id, Color color)
 {
 	newBall.position.x = x;
 	newBall.position.y = y;
@@ -27,8 +27,39 @@ void updateBall(BALL& ball)
 		float frictionToRestY = ball.mass / ball.receivedInitialForce;
 
 		// Se mueve la pelota con la velocidad actual. AGREGAR ROZAMIENTO CON LA SUPERFICIE, QUE ES INDEPENDIENTE DE LA MASA Y TODO ESO. 
-		ball.position.x += ball.speed.x * GetFrameTime();
-		ball.position.y += ball.speed.y * GetFrameTime();
+		
+
+		/*if (ball.speed.x > 0)
+		{
+			if (frictionToRestX > 0)
+			{
+				frictionToRestX *= -1;
+			}
+		}
+
+		if (ball.speed.x < 0)
+		{
+			if (frictionToRestX < 0)
+			{
+				frictionToRestX *= -1;
+			}
+		}*/
+
+		if (ball.speed.y > 0)
+		{
+			if (frictionToRestY > 0)
+			{
+				frictionToRestY *= -1;
+			}
+		}
+
+		if (ball.speed.y < 0)
+		{
+			if (frictionToRestY < 0)
+			{
+				frictionToRestY *= -1;
+			}
+		}
 
 		if (ball.speed.x > 0.0f)
 		{
@@ -85,6 +116,9 @@ void updateBall(BALL& ball)
 		{
 			ball.inMovement = false;
 		}
+
+		ball.position.x += ball.speed.x * GetFrameTime();
+		ball.position.y += ball.speed.y * GetFrameTime();
 	}
 }
 

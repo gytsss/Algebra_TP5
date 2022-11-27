@@ -20,6 +20,7 @@ struct BALL
 	int id;
 
 	float receivedInitialForce;
+	
 };
 
 
