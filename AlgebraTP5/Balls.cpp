@@ -1,4 +1,5 @@
 ﻿#include "Balls.h"
+#include <iostream>
 
 void createBall(BALL& newBall, float x, float y, float radius, float mass, int id, Color color)
 {
@@ -52,7 +53,7 @@ void updateBall(BALL& ball)
 				frictionToRestY *= -1;
 			}
 		}
-
+		
 		if (ball.speed.y < 0)
 		{
 			if (frictionToRestY < 0)

@@ -1,4 +1,4 @@
 ﻿  Balls.cpp
-C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\AlgebraTP5\Balls.cpp(139,39): warning C4100: 'speed': parámetro formal sin referencia
-C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\AlgebraTP5\Balls.cpp(147,13): warning C4505: "normalizeVector": se ha quitado la función sin referencia con vinculación interna
-  AlgebraTP5.vcxproj -> C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\Debug\AlgebraTP5.exe
+C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\AlgebraTP5\Balls.cpp(140,39): warning C4100: 'speed': parámetro formal sin referencia
+C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\AlgebraTP5\Balls.cpp(148,13): warning C4505: "normalizeVector": se ha quitado la función sin referencia con vinculación interna
+  AlgebraTP5.vcxproj -> C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\Debug\AlgebraTP5.exe

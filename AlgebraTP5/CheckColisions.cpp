@@ -42,7 +42,7 @@ void CheckBallBallColition(BALL& ball1, BALL& ball2)
 	{
 		if (ball1.inMovement)
 		{
-			if (CheckCollisionCircles(ball1.position, ball1.radius, ball2.position, ball2.radius))
+			if (CheckCollisionCircleCircle(ball1.position, ball1.radius, ball2.position, ball2.radius))
 			{
 				cout << "colition" << endl;
 				ball2.inMovement = true;
@@ -58,12 +58,12 @@ void CheckBallBallColition(BALL& ball1, BALL& ball2)
 
 void CheckBallCorner(BALL& ball)
 {
-	if (CheckCollisionCircles(ball.position, ball.radius, { 150, 50 }, 15) ||
-		CheckCollisionCircles(ball.position, ball.radius, { 750, 50 }, 15) ||
-		CheckCollisionCircles(ball.position, ball.radius, { 150, 450 }, 15) ||
-		CheckCollisionCircles(ball.position, ball.radius, { 750, 450 }, 15) ||
-		CheckCollisionCircles(ball.position, ball.radius, { 150, 850 }, 15) ||
-		CheckCollisionCircles(ball.position, ball.radius, { 750, 850 }, 15))
+	if (CheckCollisionCircleCircle(ball.position, ball.radius, { 150, 50 }, 15) ||
+		CheckCollisionCircleCircle(ball.position, ball.radius, { 750, 50 }, 15) ||
+		CheckCollisionCircleCircle(ball.position, ball.radius, { 150, 450 }, 15) ||
+		CheckCollisionCircleCircle(ball.position, ball.radius, { 750, 450 }, 15) ||
+		CheckCollisionCircleCircle(ball.position, ball.radius, { 150, 850 }, 15) ||
+		CheckCollisionCircleCircle(ball.position, ball.radius, { 750, 850 }, 15))
 	{
 		if (ball.id == 0)
 		{
@@ -79,4 +79,20 @@ void CheckBallCorner(BALL& ball)
 	}
 
 
+}
+
+bool CheckCollisionCircleCircle(Vector2 ball, float radius1, Vector2 ball2, float radius2) {
+
+  // get distance between the circle's centers
+  // use the Pythagorean Theorem to compute the distance
+  float distX = ball.x - ball2.x;
+  float distY = ball.y - ball2.y;
+  float distance = sqrt( (distX*distX) + (distY*distY) );
+
+  // if the distance is less than the sum of the circle's
+  // radii, the circles are touching!
+  if (distance <= radius1 + radius2) {
+    return true;
+  }
+  return false;
 }
