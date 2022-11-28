@@ -1,4 +1,8 @@
-﻿  Balls.cpp
-C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\AlgebraTP5\Balls.cpp(140,39): warning C4100: 'speed': parámetro formal sin referencia
-C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\AlgebraTP5\Balls.cpp(148,13): warning C4505: "normalizeVector": se ha quitado la función sin referencia con vinculación interna
-  AlgebraTP5.vcxproj -> C:\Users\silvi\OneDrive\Escritorio\Covid 19\visual studio\2 cuatri\Algebra_TP5\Debug\AlgebraTP5.exe
+﻿  Game.cpp
+C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\AlgebraTP5\Game.cpp(9,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\AlgebraTP5\Game.cpp(11,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+raylib.lib(rcore.obj) : warning LNK4099: no se encontró PDB 'raylib.pdb' con 'raylib.lib(rcore.obj)' o en 'C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\Debug\raylib.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+raylib.lib(rshapes.obj) : warning LNK4099: no se encontró PDB 'raylib.pdb' con 'raylib.lib(rshapes.obj)' o en 'C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\Debug\raylib.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+raylib.lib(rtext.obj) : warning LNK4099: no se encontró PDB 'raylib.pdb' con 'raylib.lib(rtext.obj)' o en 'C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\Debug\raylib.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+raylib.lib(rtextures.obj) : warning LNK4099: no se encontró PDB 'raylib.pdb' con 'raylib.lib(rtextures.obj)' o en 'C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\Debug\raylib.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  AlgebraTP5.vcxproj -> C:\IC\2do Cuatri\Algebra\Parcial 2\Algebra_TP5\Algebra_TP5\Debug\AlgebraTP5.exe

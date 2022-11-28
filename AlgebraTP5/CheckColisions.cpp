@@ -2,7 +2,7 @@
 
 void CheckBallWallColition(BALL& ball)
 {
-	if (ball.position.x < 160)
+	if (ball.position.x <= 160)
 	{
 		if (ball.speed.x < 0)
 		{
@@ -10,7 +10,7 @@ void CheckBallWallColition(BALL& ball)
 		}
 	}
 
-	if (ball.position.x > 750)
+	if (ball.position.x >= 750)
 	{
 		if (ball.speed.x > 0)
 		{
@@ -18,7 +18,7 @@ void CheckBallWallColition(BALL& ball)
 		}
 	}
 
-	if (ball.position.y < 50)
+	if (ball.position.y <= 50)
 	{
 		if (ball.speed.y < 0)
 		{
@@ -26,7 +26,7 @@ void CheckBallWallColition(BALL& ball)
 		}
 	}
 
-	if (ball.position.y > 850)
+	if (ball.position.y >= 850)
 	{
 		if (ball.speed.y > 0)
 		{
@@ -51,6 +51,7 @@ void CheckBallBallColition(BALL& ball1, BALL& ball2)
 
 				ball1.speed.x *= -1;
 				ball1.speed.y *= -1;
+			
 			}
 		}
 	}

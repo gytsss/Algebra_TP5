@@ -44,7 +44,7 @@ void game()
 			updateBall(arrayBalls[i]);
 		}
 
-		cout << arrayBalls[0].speed.y << endl;
+		cout << arrayBalls[0].speed.x << ", "<<arrayBalls[0].speed.y<< endl;
 		//cout << arrayBalls[1].position.x << " " << arrayBalls[1].position.y << endl;
 
 		//player

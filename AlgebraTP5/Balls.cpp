@@ -28,92 +28,43 @@ void updateBall(BALL& ball)
 		float frictionToRestY = ball.mass / ball.receivedInitialForce;
 
 		// Se mueve la pelota con la velocidad actual. AGREGAR ROZAMIENTO CON LA SUPERFICIE, QUE ES INDEPENDIENTE DE LA MASA Y TODO ESO. 
-		
 
-		/*if (ball.speed.x > 0)
+
+		if (ball.speed.x > 0)
 		{
-			if (frictionToRestX > 0)
-			{
-				frictionToRestX *= -1;
-			}
+			ball.speed.x -= frictionToRestX * ball.vectorDirection.x;
 		}
 
 		if (ball.speed.x < 0)
 		{
-			if (frictionToRestX < 0)
-			{
-				frictionToRestX *= -1;
-			}
-		}*/
+			ball.speed.x += -frictionToRestX * ball.vectorDirection.x;
+		}
 
 		if (ball.speed.y > 0)
 		{
-			if (frictionToRestY > 0)
-			{
-				frictionToRestY *= -1;
-			}
+			ball.speed.y -= frictionToRestY * ball.vectorDirection.y;
 		}
-		
+
 		if (ball.speed.y < 0)
 		{
-			if (frictionToRestY < 0)
-			{
-				frictionToRestY *= -1;
-			}
+			
+			ball.speed.y += -frictionToRestY * ball.vectorDirection.y;
 		}
 
-		if (ball.speed.x > 0.0f)
+		if (ball.speed.x < 0.09 && ball.speed.x >-0.09)
 		{
-			ball.speed.x -= frictionToRestX * ball.vectorDirection.x;
-
-			// Si la velocidad actual pas� a ir en sentido contrario... 
-			if (ball.speed.x <= 0.0f)
-			{
-				// Se setea a 0. 
-				ball.speed.x = 0.0f;
-			}
+			ball.speed.x = 0;
 		}
-		else if (ball.speed.x < 0.0f)
+		if (ball.speed.y < 0.09 && ball.speed.y >-0.09)
 		{
-			ball.speed.x -= frictionToRestX * ball.vectorDirection.x;
-
-			// Si la velocidad actual pas� a ir en sentido contrario... 
-			if (ball.speed.x >= 0.0f)
-			{
-				// Se setea a 0. 
-				ball.speed.x = 0.0f;
-			}
+			ball.speed.y = 0;
 		}
 
-		if (ball.speed.y > 0.0f)
-		{
-			ball.speed.y -= frictionToRestY * ball.vectorDirection.y;
 
-			// Si la velocidad actual pas� a ir en sentido contrario... 
-			if (ball.speed.y <= 0.0f)
-			{
-				// Se setea a 0. 
-				ball.speed.y = 0.0f;
-			}
-		}
-		else if (ball.speed.y < 0.0f)
-		{
-			ball.speed.y -= frictionToRestY * ball.vectorDirection.y;
 
-			// Si la velocidad actual pas� a ir en sentido contrario... 
-			if (ball.speed.y >= 0.0f)
-			{
-				// Se setea a 0. 
-				ball.speed.y = 0.0f;
-			}
-		}
-
-		// A la velocidad se le resta la fricci�n (F�rmula: masa / fuerzaInicial). 
-		//ball.speed.x -= ball.mass / ball.receivedInitialForce * ball.vectorDirection.x * GetFrameTime(); 
-		//ball.speed.y -= ball.mass / ball.receivedInitialForce * ball.vectorDirection.y * GetFrameTime(); 
-
+		
 		// Si la velocidad en ambos ejes est� en 0... 
-		if (ball.speed.x == 0.0f && ball.speed.y == 0.0f)
+		if (ball.speed.x == 0 && ball.speed.y == 0)
 		{
 			ball.inMovement = false;
 		}
