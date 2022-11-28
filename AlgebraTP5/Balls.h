@@ -21,6 +21,9 @@ struct BALL
 
 	float receivedInitialForce;
 	
+	float frictionToRestX;
+	float frictionToRestY;
+
 };
 
 
