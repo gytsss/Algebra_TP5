@@ -17,34 +17,34 @@ void createBall(BALL& newBall, float x, float y, float radius, float mass, int i
 
 	newBall.receivedInitialForce = 0.0f;
 
-	newBall.frictionToRestX = 11;
-	newBall.frictionToRestY = 11;
 
-	newBall.auxCheckCollision = true;
 }
 
 void updateBall(BALL& ball)
 {
+	//Friccion calculada en base a la gravedad, la masa de la pelota y la fuerza de rozamiento con la mesa
+	ball.friction = 0.2f * (ball.mass * 9.8f);
+
 	// Si la fuerza se le fue aplicada... 
 	if (ball.inMovement)
 	{
 
 		if (ball.speed.x > 0)
 		{
-			ball.speed.x -= ball.frictionToRestX * GetFrameTime();
+			ball.speed.x -= ball.friction * GetFrameTime();
 		}
 		else
 		{
-			ball.speed.x -= -ball.frictionToRestX * GetFrameTime();
+			ball.speed.x -= -ball.friction * GetFrameTime();
 		}
 
 		if (ball.speed.y > 0)
 		{
-			ball.speed.y -= ball.frictionToRestY * GetFrameTime();
+			ball.speed.y -= ball.friction * GetFrameTime();
 		}
 		else
 		{
-			ball.speed.y -= -ball.frictionToRestY * GetFrameTime();
+			ball.speed.y -= -ball.friction * GetFrameTime();
 		}
 
 

@@ -37,7 +37,7 @@ void game()
 		if (IsKeyPressed(KEY_SPACE) && !arrayBalls[0].inMovement)
 		{
 			arrayBalls[0].inMovement = true;
-			setSpeedBall(arrayBalls[0], GetMousePosition(), 80);
+			setSpeedBall(arrayBalls[0], GetMousePosition(), 30);
 		}
 
 		for (int i = 0; i < maxBalls; i++)

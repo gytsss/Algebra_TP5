@@ -23,11 +23,10 @@ struct BALL
 	int id;
 
 	float receivedInitialForce;
+	float friction;
 	
-	float frictionToRestX;
-	float frictionToRestY;
 
-	bool auxCheckCollision;
+	
 
 };
 
