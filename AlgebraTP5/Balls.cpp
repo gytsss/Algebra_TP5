@@ -11,15 +11,16 @@ void createBall(BALL& newBall, float x, float y, float radius, float mass, int i
 	newBall.mass = mass;
 
 	newBall.angle = 0.0f;
-	newBall.vectorDirection = {};
 	newBall.speed = {}; // Velocidad establecida por defecto en 0. 
 	newBall.id = id;
 	newBall.color = color;
 
 	newBall.receivedInitialForce = 0.0f;
 
-	newBall.frictionToRestX= newBall.mass / newBall.receivedInitialForce;
-	newBall.frictionToRestY= newBall.mass / newBall.receivedInitialForce;
+	newBall.frictionToRestX = 11;
+	newBall.frictionToRestY = 11;
+
+	newBall.auxCheckCollision = true;
 }
 
 void updateBall(BALL& ball)
@@ -27,57 +28,28 @@ void updateBall(BALL& ball)
 	// Si la fuerza se le fue aplicada... 
 	if (ball.inMovement)
 	{
-		 ball.frictionToRestX = ball.mass / ball.receivedInitialForce;
-		 ball.frictionToRestY = ball.mass / ball.receivedInitialForce;
-		 //:)
-		 //chequeo contra paredes
-		 if (ball.position.x <= 160)
-		 {
-			 if (ball.speed.x < 0)
-			 {
-				 ball.speed.x *= -1;
-				 ball.frictionToRestX *= -1;
-				 ball.vectorDirection.x *= -1;
-			 }
-		 }
 
-		 if (ball.position.x >= 750)
-		 {
-			 if (ball.speed.x > 0)
-			 {
-				 ball.speed.x *= -1;
-				 ball.frictionToRestX *= -1;
-				 ball.vectorDirection.x *= -1;
-			 }
-		 }
+		if (ball.speed.x > 0)
+		{
+			ball.speed.x -= ball.frictionToRestX * GetFrameTime();
+		}
+		else
+		{
+			ball.speed.x -= -ball.frictionToRestX * GetFrameTime();
+		}
 
-		 if (ball.position.y <= 50)
-		 {
-			 if (ball.speed.y < 0)
-			 {
-				 ball.speed.y *= -1;
-				 ball.frictionToRestY *= -1;
-				 ball.vectorDirection.y *= -1;
-			 }
-		 }
+		if (ball.speed.y > 0)
+		{
+			ball.speed.y -= ball.frictionToRestY * GetFrameTime();
+		}
+		else
+		{
+			ball.speed.y -= -ball.frictionToRestY * GetFrameTime();
+		}
 
-		 if (ball.position.y >= 850)
-		 {
-			 if (ball.speed.y > 0)
-			 {
-				 ball.speed.y *= -1;
-				 ball.frictionToRestY *= -1;
-				 ball.vectorDirection.y *= -1;
-			 }
-		 }
-
-
-		ball.speed.x -= ball.frictionToRestX * ball.vectorDirection.x ;
-		ball.speed.y -= ball.frictionToRestY * ball.vectorDirection.y ;
-		
 
 		//si esta casi detenida, frenarla a 0
-		if (fabs(ball.speed.x * ball.speed.x + ball.speed.y * ball.speed.y) < 0.09)
+		if (fabs(ball.speed.x * ball.speed.x + ball.speed.y * ball.speed.y) <= 0.9)
 		{
 			ball.speed.x = 0;
 			ball.speed.y = 0;
@@ -90,32 +62,29 @@ void updateBall(BALL& ball)
 			ball.inMovement = false;
 		}
 
+
 		ball.position.x += ball.speed.x * GetFrameTime();
 		ball.position.y += ball.speed.y * GetFrameTime();
 
-		
+
 	}
 }
 
 void setSpeedBall(BALL& ball, Vector2 forceOriginPosition, float force)
 {
-	float torque = force * ball.radius; // F�rmula de la fuerza angular: Fuerza inicial * radio. 
-
 	ball.inMovement = true;
-	ball.vectorDirection = { forceOriginPosition.x - ball.position.x, forceOriginPosition.y - ball.position.y };
+	Vector2 vectorDirection = { forceOriginPosition.x - ball.position.x, forceOriginPosition.y - ball.position.y };
 
-	ball.vectorDirection = Vector2Normalize(ball.vectorDirection);
+	vectorDirection = Vector2Normalize(vectorDirection);
 
-	ball.speed.x = ball.vectorDirection.x * torque;
-	ball.speed.y = ball.vectorDirection.y * torque;
-	ball.receivedInitialForce = torque;
+	ball.speed.x = vectorDirection.x * force;
+	ball.speed.y = vectorDirection.y * force;
 }
 
-void addSpeedBall(BALL& ball, Vector2 speed, float force = 0.0f)
+void setSpeedBall(BALL& ball, Vector2 speed)
 {
-	float torque = force * ball.radius; // F�rmula de la fuerza angular: Fuerza inicial * radio. 
-
-	ball.speed.y += torque;
+	ball.speed.x += speed.x * 0.009;
+	ball.speed.y += speed.y * 0.009;
 }
 
 static void normalizeVector(Vector2& v)

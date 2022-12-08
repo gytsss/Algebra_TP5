@@ -4,6 +4,10 @@
 #include "raylib.h" 
 #include "raymath.h"
 
+const int leftWall = 160;
+const int rightWall = 750;
+const int upperWall = 50;
+const int bottomWall = 850;
 
 struct BALL
 {
@@ -14,7 +18,6 @@ struct BALL
 	float mass;
 
 	float angle;
-	Vector2 vectorDirection;
 	Vector2 speed;
 	Color color;
 	int id;
@@ -24,6 +27,8 @@ struct BALL
 	float frictionToRestX;
 	float frictionToRestY;
 
+	bool auxCheckCollision;
+
 };
 
 
@@ -31,6 +36,6 @@ void createBall(BALL& newBall, float x, float y, float radius, float mass, int i
 
 void updateBall(BALL& ball); // Actualiza el estado de la bola. Esta funci�n debe llamarse siempre. 
 void setSpeedBall(BALL& ball, Vector2 originForcePosition, float force); // Establece una nueva velocidad a la bola. Pisa la velocidad anterior. 
-void addSpeedBall(BALL& ball, Vector2 speed, float force); // Modifica la velocidad actual de la bola. Se le suma a la velocidad actual. 
+void setSpeedBall(BALL& ball, Vector2 speed); // Modifica la velocidad actual de la bola. Se le suma a la velocidad actual. 
 
 #endif // !BALL_H 
