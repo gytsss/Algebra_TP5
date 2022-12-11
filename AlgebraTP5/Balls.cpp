@@ -22,7 +22,7 @@ void createBall(BALL& newBall, float x, float y, float radius, float mass, int i
 
 void updateBall(BALL& ball)
 {
-	//Friccion calculada en base a la gravedad, la masa de la pelota y la fuerza de rozamiento con la mesa
+	//Friccion calculada en base a la gravedad, la masa de la pelota y la fuerza de rozamiento con la mesa (polimero/ tela)
 	ball.friction = 0.2f * (ball.mass * 9.8f);
 
 	// Si la fuerza se le fue aplicada... 
@@ -49,14 +49,14 @@ void updateBall(BALL& ball)
 
 
 		//si esta casi detenida, frenarla a 0
-		if (fabs(ball.speed.x * ball.speed.x + ball.speed.y * ball.speed.y) <= 0.9)
+		if (fabs(ball.speed.x * ball.speed.x + ball.speed.y * ball.speed.y) <= 0.9f)
 		{
 			ball.speed.x = 0;
 			ball.speed.y = 0;
 		}
 
 
-		// Si la velocidad en ambos ejes est� en 0... 
+		// Si la velocidad en ambos ejes esta en 0
 		if (ball.speed.x == 0 && ball.speed.y == 0)
 		{
 			ball.inMovement = false;

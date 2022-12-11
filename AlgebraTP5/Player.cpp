@@ -17,15 +17,10 @@ PLAYER CreatePlayer()
 	return P1;
 }
 
-void PlayerInput(PLAYER& P1)
-{
-	P1;
-}
 
 void PlayerMove(PLAYER& P1, BALL& ball1)
 {
 	Vector2 vectorDirection;
-	Vector2 addSpace;
 	float arctan;
 
 	vectorDirection.x = GetMouseX() - ball1.position.x;

@@ -14,6 +14,4 @@ struct PLAYER
 
 PLAYER CreatePlayer();
 
-void PlayerInput(PLAYER& P1);
-
 void PlayerMove(PLAYER& P1, BALL& ball1);

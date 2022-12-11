@@ -118,11 +118,11 @@ void ElasticCollision(BALL& ball1, BALL& ball2)
 	float dpNorm2 = ball2.speed.x * normalX + ball2.speed.y * normalY;
 
 	//conservacion de velocidad en 1d 
-	float m1 = (dpNorm1 / (ball1.mass * 2)) + dpNorm2;
-	float m2 = (dpNorm2 / (ball2.mass * 2)) + dpNorm1;
+	float momentum1 = (dpNorm1 / (ball1.mass * 2)) + dpNorm2;
+	float momentum2 = (dpNorm2 / (ball2.mass * 2)) + dpNorm1;
 
 
-	ball1.speed = { tangentX * dpTan1 + normalX * m1, tangentY * dpTan1 + normalY * m1 };
-	ball2.speed = { tangentX * dpTan2 + normalX * m2 , tangentY * dpTan2 + normalY * m2 };
+	ball1.speed = { tangentX * dpTan1 + normalX * momentum1, tangentY * dpTan1 + normalY * momentum1 };
+	ball2.speed = { tangentX * dpTan2 + normalX * momentum2 , tangentY * dpTan2 + normalY * momentum2 };
 
 }
